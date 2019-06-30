@@ -1,2 +1,34 @@
-<h1>Basic</h1>
-<fragment primary id="fragment-1" src="http://localhost:8081"></fragment>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background: #eceff4;
+      }
+    </style>
+    <script>
+      (function(d) {
+        require(d);
+        var arr = [
+          "react",
+          "react-dom",
+          "react-redux",
+          "react-router",
+          "react-router-dom",
+          "redux",
+          "classnames"
+        ];
+        while ((i = arr.pop()))
+          (function(dep) {
+            define(dep, d, function(b) {
+              return b[dep];
+            });
+          })(i);
+      })(["http://localhost:6006/public/bundle.js"]);
+    </script>
+  </head>
+  <body>
+    <div id="page"></div>
+    <fragment primary src="http://localhost:8081"></fragment>
+  </body>
+</html>
